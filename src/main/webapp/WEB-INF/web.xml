@@ -3,7 +3,7 @@
   
   <display-name>testproject</display-name>
   <welcome-file-list>
-    <welcome-file>views/login.jsp </welcome-file>
+    <welcome-file>views/topbar.jsp</welcome-file>
   </welcome-file-list>
   
 </web-app>

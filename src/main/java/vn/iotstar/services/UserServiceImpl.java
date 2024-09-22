@@ -21,17 +21,6 @@ public class UserServiceImpl implements UserService{
 		System.out.println(userService.login("tuong","123"));
 	}
 
-//	public static void main( String[] args)
-//	{
-//		User user = userDao.findByUserName("tuong");
-//		String password = "123";
-//		if (user != null && password.equals(user.getPassWord())) {
-//			 System.out.println("dang nhap thanh cong");
-//			 }
-//		else
-//			 System.out.println("khong thanh cong");
-//	}
-	@Override
 	 public User findByUserName(String username) {
 		 return userDao.findByUserName(username);
 		 }
@@ -68,7 +57,5 @@ public class UserServiceImpl implements UserService{
 		return userDao.checkExistPhone(phone);
 	}
 	
-	
-
 
 }

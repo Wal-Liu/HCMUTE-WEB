@@ -21,7 +21,6 @@ public class UserDaoImpl implements UserDao {
 	public User findByUserName(String username) {
 		String sql = "SELECT * FROM web.user WHERE username =?";
 		try {
-			//conn = new DBConnectionSQLServer().getConnection();
 			conn = DBConnectMySQL.getDatabaseConnection();
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, username);
@@ -52,15 +51,11 @@ public class UserDaoImpl implements UserDao {
 	}
 	
 	
-	
-	
-	
-	
-	
 	public void insert(User user) {
-		String sql = "INSERT INTO [Userstable](email, username, fullname, password, avatar, roleid,phone, createddate) VALUES (?,?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO web.user (email, username, fullname, password, images, roleid,phone, createdate) VALUES (?,?,?,?,?,?,?,?)";
 		try {
-			conn = new DBConnectionSQLServer().getConnection();
+			//conn = new DBConnectionSQLServer().getConnection();
+			conn = DBConnectMySQL.getDatabaseConnection();
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, user.getEmail());
 			ps.setString(2, user.getUsername());
@@ -80,9 +75,9 @@ public class UserDaoImpl implements UserDao {
 	
 	public boolean checkExistEmail(String email) {
 		boolean duplicate = false;
-		String query = "select * from [Userstable] where email = ?";
+		String query = "select * from web.user where email = ?";
 		try {
-			conn = new DBConnectionSQLServer().getConnection();
+			conn = DBConnectMySQL.getDatabaseConnection();
 			ps = conn.prepareStatement(query);
 			ps.setString(1, email);
 			rs = ps.executeQuery();
@@ -99,9 +94,9 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public boolean checkExistUsername(String username) {
 		boolean duplicate = false;
-		String query = "select * from [Userstable] where username = ?";
+		String query = "SELECT * FROM web.user WHERE username =?";
 		try {
-			conn = new DBConnectionSQLServer().getConnection();
+			conn = DBConnectMySQL.getDatabaseConnection();
 			ps = conn.prepareStatement(query);
 			ps.setString(1, username);
 			rs = ps.executeQuery();
@@ -118,9 +113,9 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public boolean checkExistPhone(String phone) {
 		boolean duplicate = false;
-		String query = "select * from [Userstable] where phone = ?";
+		String query = "select * from web.user where phone = ?";
 		try {
-			conn = new DBConnectionSQLServer().getConnection();
+			conn = DBConnectMySQL.getDatabaseConnection();
 			ps = conn.prepareStatement(query);
 			ps.setString(1, phone);
 			rs = ps.executeQuery();
@@ -134,11 +129,4 @@ public class UserDaoImpl implements UserDao {
 		return duplicate;
 	}
 
-
-
-	@Override
-	public User get(String username) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }

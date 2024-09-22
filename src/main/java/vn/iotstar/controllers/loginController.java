@@ -11,15 +11,11 @@ import vn.iotstar.models.User;
 import vn.iotstar.services.UserService;
 import vn.iotstar.services.UserServiceImpl;
 import vn.iotstar.utils.Constants;
-
 import java.io.IOException;
 import java.io.PrintWriter;
 
 
-
-
 @WebServlet(urlPatterns = "/login")
-
 
 public class loginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -50,11 +46,6 @@ public class loginController extends HttpServlet {
 	}
 
 	
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html");
@@ -62,8 +53,6 @@ public class loginController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		System.out.println(username);
-		System.out.println(password);
 		boolean isRememberMe = false;
 		String remember = request.getParameter("remember");
 		
@@ -79,8 +68,7 @@ public class loginController extends HttpServlet {
 			request.getRequestDispatcher("/views/login.jsp").forward(request, response);
 			return;
 		}
-				User user = service.login(username, password);
-		//User user = service.login("tuong", "123");
+		User user = service.login(username, password);
 
 		if (user != null) {
 			HttpSession session = request.getSession(true);
@@ -102,10 +90,6 @@ public class loginController extends HttpServlet {
 		cookie.setMaxAge(30 * 60);
 		response.addCookie(cookie);
 	}
-//	public static void main(String[] args) {
-//		UserService userService = new UserServiceImpl();
-//		System.out.println(userService.login("tuong","123"));
-//	}
 
 
 }
