@@ -9,8 +9,8 @@
 </head>
 <body>
 
-	<form action="login" method="post">
-		<h2>Đăng nhập tài khoản</h2>
+	<form action="forget" method="post">
+		<h2>Quên mật khẩu</h2>
 		<c:if test="${alert !=null}">
 			<h3 class="alert alert danger">${alert}</h3>
 		</c:if>
@@ -18,16 +18,15 @@
 		<section>
 			<label class="input login-input">
 				<div class="input-group">
-					<span class="input-group-addon"><i class="fa fauser"></i></span> <input
+					<span class="input-group-addon"><i class="fa fauser"></i></span> 
+					<input
 						type="text" placeholder="Tài khoản" name="username"
-						class="form-control"> <br> <input type="text"
-						placeholder="Mật khẩu" name="password" class="form-control">
-					<br> <input type="Submit" value="Submit" /> <input
-						type="checkbox" value="remember" /> Ghi nhớ đăng nhập
+						class="form-control"> 
+						<input type="Submit" value="Submit" />
 				</div>
 			</label>
 		</section>
-		<a href="${pageContext.request.contextPath }/forget">Quên mật khẩu
+				<a href="${pageContext.request.contextPath }/login">Đăng nhập
 							</a>
 	</form>
 

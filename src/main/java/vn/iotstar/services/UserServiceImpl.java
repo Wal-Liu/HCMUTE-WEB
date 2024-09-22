@@ -56,6 +56,15 @@ public class UserServiceImpl implements UserService{
 	public boolean checkExistPhone(String phone) {
 		return userDao.checkExistPhone(phone);
 	}
+	@Override
+	public User forget(String username) {
+		User user = this.findByUserName(username);
+		
+		 if (user != null) {
+			 return user;
+		 }
+		 return null;
+	}
 	
 
 }
