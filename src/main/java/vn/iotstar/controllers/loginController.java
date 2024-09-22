@@ -31,17 +31,17 @@ public class loginController extends HttpServlet {
 		}
 
 		// Check cookie
-//		Cookie[] cookies = request.getCookies();
-//		if (cookies != null) {
-//			for (Cookie cookie : cookies) {
-//				if (cookie.getName().equals("username")) {
-//					session = request.getSession(true);
-//					session.setAttribute("username", cookie.getValue());
-//					response.sendRedirect(request.getContextPath() + "/waiting");
-//					return;
-//				}
-//			}
-//		}
+		Cookie[] cookies = request.getCookies();
+		if (cookies != null) {
+			for (Cookie cookie : cookies) {
+				if (cookie.getName().equals("username")) {
+					session = request.getSession(true);
+					session.setAttribute("username", cookie.getValue());
+					response.sendRedirect(request.getContextPath() + "/waiting");
+					return;
+				}
+			}
+		}
 		request.getRequestDispatcher("/views/login.jsp").forward(request, response);
 	}
 

@@ -7,8 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	trang chủ của admin
-	
+	trang chủ của manager
 	
 	<a href="${pageContext.request.contextPath }/logout"> Đăng Xuất </a>
 </body>

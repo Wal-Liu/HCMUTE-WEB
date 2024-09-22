@@ -6,17 +6,33 @@ public class Role implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	private int roleId;
-	private String roleName;
+	private int roleid;
+	private String rolename;
 	
-	public Role(int roleId, String roleName) {
+	public Role(int roleId, String rolename) {
 		super();
-		this.roleId = roleId;
-		this.roleName = roleName;
+		this.roleid = roleId;
+		this.rolename = rolename;
 	}
 
 	public Role() {
 		super();
+	}
+
+	public int getRoleid() {
+		return roleid;
+	}
+
+	public void setRoleid(int roleid) {
+		this.roleid = roleid;
+	}
+
+	public String getRolename() {
+		return rolename;
+	}
+
+	public void setRolename(String rolename) {
+		this.rolename = rolename;
 	}
 	
 	
